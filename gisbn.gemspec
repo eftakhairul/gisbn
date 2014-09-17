@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Gisbn::VERSION
   spec.authors       = ["Eftakhairul Islam"]
   spec.email         = ["eftakhaiurl@gmial.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{ISBN to book information.}
+  spec.description   = %q{It fetches book's information by ISBN number based on Google Book API.}
+  spec.homepage      = "https://github.com/eftakhairul/gisbn"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
