@@ -6,13 +6,14 @@ require 'json'
 
 module Gisbn
 
-  @base_ur = 'https://www.googleapis.com/books/v1/volumes?key=AIzaSyDKepjfaVBRcgsnPALw5s2UNyfOk-1FHUU&country=bd&q=isbn:'
+  class Book
+    BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
 
-  def initialize(key, country = nil)
-    if !key.nil?
-      @base_ur ||= @base_ur + "/key=#{key}"
+    def initialize(number  = nil,
+                   key     = 'AIzaSyDKepjfaVBRcgsnPALw5s2UNyfOk-1FHUU',
+                   country = 'ca')
+
+      @base_url = BASE_URL + "#{number}&key=#{key}&country=#{country}"
     end
-
   end
-
 end
