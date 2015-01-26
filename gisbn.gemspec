@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Gisbn::VERSION
   spec.authors       = ["Eftakhairul Islam"]
   spec.email         = ["eftakhairul@gmail.com"]
-  spec.summary       = %q{ISBN to book information.}
-  spec.description   = %q{It fetches book's information by ISBN number based on Google Book API}
+  spec.summary       = %q{Book information from ISBN by Google Book API.}
+  spec.description   = %q{It fetches book's information by ISBN number based on Google Book API.}
   spec.homepage      = "https://github.com/eftakhairul/gisbn"
   spec.license       = "MIT"
 
