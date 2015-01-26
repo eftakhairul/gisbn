@@ -22,23 +22,27 @@ module Gisbn
     end
 
     def description
-      @result["items"]["description"]
+      @result["items"][0]["description"].to_s
     end
 
     def title
-      @result["items"]["volumeInfo"]["title"]
+      @result["items"][0]["volumeInfo"]["title"].to_s
     end
 
     def authors
-      @result["items"]["volumeInfo"]["authors"].join(",")
+      @result["items"][0]["volumeInfo"]["authors"].join(",")
     end
 
     def authors_as_array
-      @result["items"]["volumeInfo"]["authors"]
+      @result["items"][0]["volumeInfo"]["authors"]
     end
 
     def ISBN_10
-      @result["items"]["industryIdentifiers"][""]
+      @result["items"]["industryIdentifiers"][1]["identifier"]
+    end
+
+    def ISBN_13
+      @result["items"]["industryIdentifiers"][0]["identifier"]
     end
   end
 end
