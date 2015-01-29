@@ -38,11 +38,15 @@ module Gisbn
     end
 
     def ISBN_10
-      @result["items"]["industryIdentifiers"][1]["identifier"]
+      @result["items"][0]["industryIdentifiers"][1]["identifier"]
     end
 
     def ISBN_13
-      @result["items"]["industryIdentifiers"][0]["identifier"]
+      @result["items"][0]["industryIdentifiers"][0]["identifier"]
+    end
+
+    def cover_image
+
     end
   end
 end
