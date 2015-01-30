@@ -6,7 +6,9 @@ require 'json'
 
 
 module Gisbn
+
   class Book
+
     attr_reader :result, :isbn
     BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
 
