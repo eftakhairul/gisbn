@@ -22,11 +22,11 @@ module Gisbn
     end
 
     def description
-      @result["items"][0]["description"].to_s
+      @result["items"][0]["description"]
     end
 
     def title
-      @result["items"][0]["volumeInfo"]["title"].to_s
+      @result["items"][0]["volumeInfo"]["title"]
     end
 
     def authors
