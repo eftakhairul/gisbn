@@ -27,13 +27,13 @@ gem 'imdb'
 ```
 
 ## Examples
-    book = Gisbn::Book.new("")
+    book = Gisbn::Book.new("0262033844")
 
     book.title
-    #=> "Die Hard"
+    #=> "Introduction to Algorithms"
 
     book.description
-    #=> "Bruce Willis"
+    #=> ""
 
 
 ### Development
