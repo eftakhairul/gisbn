@@ -1,29 +1,62 @@
-# Gisbn
+# gisbn
 
-TODO: Write a gem description
+It fetches book's information by ISBN number based on Google Book API.
 
-## Installation
+  - Easy to get all information by ISBN
+  - Structure data
 
-Add this line to your application's Gemfile:
+You don't have to call manually Google API with ISBN number. This gem will do everything for you.
 
-    gem 'gisbn'
 
-And then execute:
 
-    $ bundle
+### Version
+0.0.1
 
-Or install it yourself as:
 
-    $ gem install gisbn
+### Installation
 
-## Usage
+You need Gulp installed globally:
 
-TODO: Write usage instructions here
+```sh
+gem install gisbn
+```
+Or, if you're using this in a project with Bundler:
 
-## Contributing
+```sh
+gem 'imdb'
+```
 
-1. Fork it ( https://github.com/[my-github-username]/gisbn/fork )
+## Examples
+    book = Gisbn::Book.new("")
+
+    book.title
+    #=> "Die Hard"
+
+    book.description
+    #=> "Bruce Willis"
+
+
+### Development
+
+Want to contribute? Great!
+
+1. Fork it ( https://github.com/eftakhairul/gisbn/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+
+Author
+-----------
+[Eftakhairul Islam] - eftakhairul [at] gmail [dot] com
+[Eftakhairul Islam]:http://eftakhairul.com/
+
+
+License
+----
+MIT
+
+
+
+
