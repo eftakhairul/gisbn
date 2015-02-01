@@ -14,7 +14,11 @@ module Gisbn
 
     # Initialize a new Book object by ISBN (either by ISBN 10 or ISBN 13)
     #
-    # book = Gisbn::Book.new("0262033844")
+    # At Interactive Ruby Shell...
+    # require 'gisbn'
+    # book = Gisbn::Book.new "0262033844"
+    #
+    # book.title #=> "Introduction to Algorithms"
     #
     def initialize(isbn     = nil,
                    key      = 'AIzaSyDKepjfaVBRcgsnPALw5s2UNyfOk-1FHUU',
