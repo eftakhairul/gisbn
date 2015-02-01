@@ -27,13 +27,32 @@ gem 'imdb'
 ```
 
 ## Examples
-    book = Gisbn::Book.new("0262033844")
+    book = Gisbn::Book.new "0262033844"
 
     book.title
     #=> "Introduction to Algorithms"
 
     book.description
-    #=> ""
+    #=> "A new edition of the essential text and professional reference, with substantial newmaterial on such topics as vEB trees, multithreaded algorithms, dynamic programming, and edge-baseflow."
+
+    book.publisher
+    #=> "MIT Press"
+
+    book.published_date
+    #=> <Date: 2001-02-03 ...>
+
+    book.isbn_10
+    #=> 0262033844
+
+    book.isbn_13
+    #=> 9780262033848
+
+    book.thumbnail
+    #=> http://books.google.com/books/content?id=i-bUBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
+
+    book.preview
+    #=> http://books.google.ca/books?id=i-bUBQAAQBAJ&printsec=frontcover&dq=isbn:0262033844&hl=&cd=1&source=gbs_api
+
 
 
 ### Development
