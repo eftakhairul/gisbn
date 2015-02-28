@@ -50,12 +50,28 @@ module Gisbn
       @result["items"][0]["volumeInfo"]["authors"]
     end
 
-    #Return the ten digit ISBN
+
+    # It returns the ten digit ISBN number of book
+    #
+    # Example:
+    #   >> gisbn.ISBN_13
+    #   => hola mundo
+    #
+    # Return:
+    #     the ten digit ISBN
     def ISBN_10
       @result["items"][0]["industryIdentifiers"][1]["identifier"]
     end
 
-    #Return the thirteen  digit ISBN
+
+    # It returns the thirteen  digit ISBN number of book
+    #
+    # Example:
+    #   >> gisbn.ISBN_13
+    #   => hola mundo
+    #
+    # Return:
+    #     the thirteen digit ISBN
     def ISBN_13
       @result["items"][0]["industryIdentifiers"][0]["identifier"]
     end

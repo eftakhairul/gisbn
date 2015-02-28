@@ -23,7 +23,7 @@ gem install gisbn
 Or, if you're using this in a project with Bundler:
 
 ```sh
-gem 'imdb'
+gem 'gisbn'
 ```
 
 ## Examples
