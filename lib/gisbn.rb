@@ -30,22 +30,49 @@ module Gisbn
       @result   = JSON.parse(response)
     end
 
-    #Return the description of the book
+    # Description of the book
+    #
+    # Example:
+    #   >> gisbn.title
+    #   => ""
+    #
+    # Return:
+    #     String
     def description
       @result["items"][0]["description"]
     end
 
-    #Return the title of the book
+    # Title of the book
+    # Example:
+    #   >> gisbn.title
+    #   => "Introduction to Algorithms"
+    #
+    # Return:
+    #     String
     def title
       @result["items"][0]["volumeInfo"]["title"]
     end
 
-    #Return the all authors' name as comma separated
+    # It returns all authors' name as comma separated string
+    #
+    # Example:
+    #   >> gisbn.authors_as_array
+    #   => "harles E. Leiserson, Clifford Stein, Ronald Rivest,Thomas H. Cormen"
+    #
+    # Return:
+    #     String
     def authors
       @result["items"][0]["volumeInfo"]["authors"].join(",")
     end
 
-    #Return the all authors' name as array
+    # It returns all authors' name as array
+    #
+    # Example:
+    #   >> gisbn.authors_as_array
+    #   => ["harles E. Leiserson", "Clifford Stein", "Ronald Rivest", "Thomas H. Cormen"]
+    #
+    # Return:
+    #     array
     def authors_as_array
       @result["items"][0]["volumeInfo"]["authors"]
     end
@@ -54,7 +81,7 @@ module Gisbn
     # It returns the ten digit ISBN number of book
     #
     # Example:
-    #   >> gisbn.ISBN_13
+    #   >> gisbn.ISBN_10
     #   => hola mundo
     #
     # Return:
