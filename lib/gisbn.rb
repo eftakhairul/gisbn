@@ -77,30 +77,55 @@ module Gisbn
       @result["items"][0]["volumeInfo"]["authors"]
     end
 
+    # It returns publisher name
+    #
+    # Example:
+    #   >> gisbn.publisher
+    #   => "MIT Press"
+    #
+    # Return:
+    #     String
+    def publisher
+      @result["items"][0]["volumeInfo"]["publisher"]
+    end
+
 
     # It returns the ten digit ISBN number of book
     #
     # Example:
     #   >> gisbn.ISBN_10
-    #   => hola mundo
+    #   => "0262033844"
     #
     # Return:
-    #     the ten digit ISBN
+    #     the ten digit numbers
     def ISBN_10
-      @result["items"][0]["industryIdentifiers"][1]["identifier"]
+      isbn_array = @result["items"][0]["volumeInfo"]["industryIdentifiers"]
+
+      isbn_array.each do |isbn|
+        if isbn["type"] == "ISBN_13"
+          return isbn["identifier"]
+        end
+      end
     end
 
 
-    # It returns the thirteen  digit ISBN number of book
+    # It returns the thirteen digit ISBN number of book
     #
     # Example:
     #   >> gisbn.ISBN_13
-    #   => hola mundo
+    #   => "9780262033848"
     #
     # Return:
-    #     the thirteen digit ISBN
+    #     the thirteen digit number
     def ISBN_13
-      @result["items"][0]["industryIdentifiers"][0]["identifier"]
+      isbn_array = @result["items"][0]["volumeInfo"]["industryIdentifiers"]
+
+      isbn_array.each do |isbn|
+        if isbn["type"] == "ISBN_13"
+          return isbn["identifier"]
+        end
+      end
     end
+
   end
 end
