@@ -12,7 +12,7 @@ module Gisbn
     attr_reader :result, :isbn
     BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
 
-    # Initialize a new Book object by ISBN (either by ISBN 10 or ISBN 13)
+    # Initialize a new Book object by ISBN (either ISBN 10 or ISBN 13)
     #
     # At Interactive Ruby Shell...
     # require 'gisbn'
