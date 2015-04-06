@@ -10,6 +10,10 @@ module Gisbn
   class Book
 
     attr_reader :result, :isbn
+
+    private
+    attr_accessor :key, :country
+
     BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
 
     # Initialize a new Book object by ISBN (either ISBN 10 or ISBN 13)
@@ -26,8 +30,52 @@ module Gisbn
 
 
       @isbn     = isbn.strip! || isbn
-      response  = Net::HTTP.get_response(URI.parse(BASE_URL + "#{isbn}&key=#{key}&country=#{country}")).body
+      @key      = key
+      @country  = country
+
+      fetch
+    end
+
+
+    # Fetch book info from Google API
+    #
+    # Example:
+    #   >> gisbn.fetch
+    #
+    #   #<Gisbn::Book:0x007fc08525e688 @isbn="0262033844", @result={"kind"=>"books#volumes", "totalItems"=>1, "items"=>[{"kind"=>"books#volume",
+    #   "id"=>"i-bUBQAAQBAJ", "etag"=>"a0y8TyrBWu0", "selfLink"=>"https://www.googleapis.com/books/v1/volumes/i-bUBQAAQBAJ",
+    #   "volumeInfo"=>{"title"=>"Introduction to Algorithms", "authors"=>["Thomas H. Cormen"], "publisher"=>"MIT Press", "publishedDate"=>"2009-07-31",
+    #   "description"=>"A new edition of the essential text and professional reference, with substantial newmaterial on such topics as vEB trees,
+    #   multithreaded algorithms, dynamic programming, and edge-baseflow.", "industryIdentifiers"=>[{"type"=>"ISBN_13", "identifier"=>"9780262033848"},
+    #   {"type"=>"ISBN_10", "identifier"=>"0262033844"}], "readingModes"=>{"text"=>false, "image"=>true}, "pageCount"=>1292, "printType"=>"BOOK",
+    #   "categories"=>["Computers"], "averageRating"=>4.0, "ratingsCount"=>16, "contentVersion"=>"preview-1.0.0",
+    #   "imageLinks"=>{"smallThumbnail"=>"http://books.google.com/books/content?id=i-bUBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+    #   "thumbnail"=>"http://books.google.com/books/content?id=i-bUBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}, "language"=>"en",
+    #   "previewLink"=>"http://books.google.ca/books?id=i-bUBQAAQBAJ&printsec=frontcover&dq=isbn:0262033844&hl=&cd=1&source=gbs_api",
+    #   "infoLink"=>"http://books.google.ca/books?id=i-bUBQAAQBAJ&dq=isbn:0262033844&hl=&source=gbs_api", "canonicalVolumeLink"=>"http://books.google.ca/books/about/Introduction_to_Algorithms.html?hl=&id=i-bUBQAAQBAJ"},
+    #   "saleInfo"=>{"country"=>"CA", "saleability"=>"NOT_FOR_SALE", "isEbook"=>false}, "accessInfo"=>{"country"=>"CA", "viewability"=>"PARTIAL",
+    #   "embeddable"=>true, "publicDomain"=>false, "textToSpeechPermission"=>"ALLOWED", "epub"=>{"isAvailable"=>false}, "pdf"=>{"isAvailable"=>false},
+    #   "webReaderLink"=>"http://books.google.ca/books/reader?id=i-bUBQAAQBAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    #   "accessViewStatus"=>"SAMPLE", "quoteSharingAllowed"=>false}, "searchInfo"=>{"textSnippet"=>"A new edition of the essential text
+    #   and professional reference, with substantial newmaterial on such topics as vEB trees, multithreaded algorithms, dynamic programming, and
+    #   edge-baseflow."}}]}
+    #
+    # Return:
+    #     JSON
+    def fetch
+      response  = Net::HTTP.get_response(URI.parse(BASE_URL + "#{@isbn}&key=#{@key}&country=#{@country}")).body
       @result   = JSON.parse(response)
+    end
+
+    # Set ISBN for new request
+    #
+    # Example:
+    #   >> gisbn.isbn = 0262033844
+    #
+    # Return
+    #     Gisbn
+    def isbn(isbn)
+      isbn.strip! || isbn
     end
 
     # Description of the book
