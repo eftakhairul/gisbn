@@ -151,5 +151,55 @@ module Gisbn
     def categories_as_array
       @result["items"][0]["volumeInfo"]["categories"]
     end
+
+
+    # It returns the link of small size thumbnail of book
+    #
+    # Example:
+    #   >> gisbn.small_thumbnail
+    #   => "http://books.google.com/books/content?id=i-bUBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
+    #
+    # Return:
+    #     String
+    def thumbnail_small
+      @result["items"][0]["volumeInfo"]["imageLinks"]["smallThumbnail"]
+    end
+
+
+    # It returns the link of thumbnail of book
+    #
+    # Example:
+    #   >> gisbn.thumbnail
+    #   => "http://books.google.com/books/content?id=i-bUBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    #
+    # Return:
+    #     String
+    def thumbnail
+      @result["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
+    end
+
+    # It returns the preview link of book
+    #
+    # Example:
+    #   >> gisbn.preview_link
+    #   => "http://books.google.ca/books?id=i-bUBQAAQBAJ&printsec=frontcover&dq=isbn:0262033844&hl=&cd=1&source=gbs_api"
+    #
+    # Return:
+    #     String
+    def preview_link
+      @result["items"][0]["volumeInfo"]["previewLink"]
+    end
+
+    # It returns the count of page
+    #
+    # Example:
+    #   >> gisbn.page_count
+    #   => 1292
+    #
+    # Return:
+    #     int
+    def page_count
+      @result["items"][0]["volumeInfo"]["pageCount"] rescue nil
+    end
   end
 end
