@@ -62,7 +62,7 @@ module Gisbn
     # Return:
     #     String
     def authors
-      @result["items"][0]["volumeInfo"]["authors"].join(",")
+      @result["items"][0]["volumeInfo"]["authors"].join(", ")
     end
 
     # It returns all authors' name as array
@@ -93,12 +93,12 @@ module Gisbn
     # It returns the ten digit ISBN number of book
     #
     # Example:
-    #   >> gisbn.ISBN_10
+    #   >> gisbn.isbn_10
     #   => "0262033844"
     #
     # Return:
     #     the ten digit numbers
-    def ISBN_10
+    def isbn_10
       isbn_array = @result["items"][0]["volumeInfo"]["industryIdentifiers"]
 
       isbn_array.each do |isbn|
@@ -112,12 +112,12 @@ module Gisbn
     # It returns the thirteen digit ISBN number of book
     #
     # Example:
-    #   >> gisbn.ISBN_13
+    #   >> gisbn.isbn_13
     #   => "9780262033848"
     #
     # Return:
     #     the thirteen digit number
-    def ISBN_13
+    def isbn_13
       isbn_array = @result["items"][0]["volumeInfo"]["industryIdentifiers"]
 
       isbn_array.each do |isbn|
@@ -127,5 +127,29 @@ module Gisbn
       end
     end
 
+    # It returns categories of book
+    #
+    # Example:
+    #   >> gisbn.categories
+    #   => "Computers"
+    #
+    # Return:
+    #     String
+    def categories
+      @result["items"][0]["volumeInfo"]["categories"].join(", ")
+    end
+
+
+    # It returns categories of book as array
+    #
+    # Example:
+    #   >> gisbn.categories
+    #   => ["Computers"]
+    #
+    # Return:
+    #     array
+    def categories_as_array
+      @result["items"][0]["volumeInfo"]["categories"]
+    end
   end
 end
