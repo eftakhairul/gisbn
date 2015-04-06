@@ -199,7 +199,20 @@ module Gisbn
     # Return:
     #     int
     def page_count
-      @result["items"][0]["volumeInfo"]["pageCount"] rescue nil
+      @result["items"][0]["volumeInfo"]["pageCount"]
+    end
+
+
+    # It returns the published date
+    #
+    # Example:
+    #   >> gisbn.published_date
+    #   => #<Date: 2009-07-31 ((2455044j,0s,0n),+0s,2299161j)>
+    #
+    # Return:
+    #     Date
+    def published_date
+      Date.parse(@result["items"][0]["volumeInfo"]["publishedDate"])
     end
   end
 end
