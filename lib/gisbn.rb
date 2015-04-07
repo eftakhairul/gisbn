@@ -17,7 +17,7 @@ module Gisbn
     BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
 
     public
-    # Initialize a new Book object by ISBN (either ISBN 10 or ISBN 13)
+    # Initialize a new Book object by ISBN (either ten or thirteen digits ISBN number)
     #
     # At Interactive Ruby Shell...
     # require 'gisbn'
@@ -83,8 +83,9 @@ module Gisbn
     # Description of the book
     #
     # Example:
-    #   >> gisbn.title
-    #   => ""
+    #   >> gisbn.description
+    #   => "A new edition of the essential text and professional reference, with substantial newmaterial on such topics as vEB trees,
+    #       multithreaded algorithms, dynamic programming, and edge-baseflow."
     #
     # Return:
     #     String
@@ -108,7 +109,7 @@ module Gisbn
     # It returns all authors' name as comma separated string
     #
     # Example:
-    #   >> gisbn.authors_as_array
+    #   >> gisbn.authors
     #   => "harles E. Leiserson, Clifford Stein, Ronald Rivest,Thomas H. Cormen"
     #
     # Return:
