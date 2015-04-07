@@ -9,5 +9,9 @@ describe "gisbn" do
     it 'book title' do
       expect(output.downcase).to eq subject.title.downcase
     end
+
+    it 'book page count' do
+      expect(output).to eq subject.page_count
+    end
   end
 end
