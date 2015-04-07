@@ -42,8 +42,7 @@ module Gisbn
     #
     # Example:
     #   >> gisbn.fetch
-    #
-    #   #<Gisbn::Book:0x007fc08525e688 @isbn="0262033844", @result={"kind"=>"books#volumes", "totalItems"=>1, "items"=>[{"kind"=>"books#volume",
+    #   => #<Gisbn::Book:0x007fc08525e688 @isbn="0262033844", @result={"kind"=>"books#volumes", "totalItems"=>1, "items"=>[{"kind"=>"books#volume",
     #   "id"=>"i-bUBQAAQBAJ", "etag"=>"a0y8TyrBWu0", "selfLink"=>"https://www.googleapis.com/books/v1/volumes/i-bUBQAAQBAJ",
     #   "volumeInfo"=>{"title"=>"Introduction to Algorithms", "authors"=>["Thomas H. Cormen"], "publisher"=>"MIT Press", "publishedDate"=>"2009-07-31",
     #   "description"=>"A new edition of the essential text and professional reference, with substantial newmaterial on such topics as vEB trees,

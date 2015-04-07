@@ -54,6 +54,31 @@ gem 'gisbn'
     #=> http://books.google.ca/books?id=i-bUBQAAQBAJ&printsec=frontcover&dq=isbn:0262033844&hl=&cd=1&source=gbs_api
 
 
+    book.gisbn.isbn = 9780321573513
+    book.fetch.title  => "Algorithms"
+
+
+
+## Methods
+    title                >> Returns Book's title as string
+    description          >> Returns the description of book as string
+    isbn(isbn_number)    >> Set new isbn
+    fetch                >> Call to Google Book API and process book information on provided ISBN
+    authors              >> Return authors' name as comma separated as string
+    authors_as_array     >> Return authors' name as ruby array. If no book is associated with ISBN number,
+                            then it return empty array
+    publisher            >> Return publisher name as string
+    isbn_10              >> Return 10 digit ISBN numbers as string
+    isbn_13              >> Return 13 digit ISBN numbers as string
+    categories           >> Return category names as comma separated as string
+    categories_as_array  >> Return category names as ruby array. If no book is associated with ISBN number,
+                            then it return empty array
+    thumbnail_small      >> Return the link of small thumnail
+    thumbnail            >> Return the link of standard thumnail
+    preview_link         >> Return the link for previewing the book
+    page_count           >> Return page count as integer
+    published_date       >> Return the published date as Ruby object
+
 
 ### Development
 
