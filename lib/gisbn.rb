@@ -37,7 +37,6 @@ module Gisbn
       fetch
     end
 
-
     # Fetch book info from Google API
     #
     # Example:
