@@ -16,6 +16,7 @@ module Gisbn
 
     BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
 
+    public
     # Initialize a new Book object by ISBN (either ISBN 10 or ISBN 13)
     #
     # At Interactive Ruby Shell...
@@ -60,11 +61,12 @@ module Gisbn
     #   and professional reference, with substantial newmaterial on such topics as vEB trees, multithreaded algorithms, dynamic programming, and
     #   edge-baseflow."}}]}
     #
-    # Return:
+    # Return
     #     JSON
     def fetch
       response  = Net::HTTP.get_response(URI.parse(BASE_URL + "#{@isbn}&key=#{@key}&country=#{@country}")).body
       @result   = JSON.parse(response)
+      @result   = nil if @result["totalItems"] == 0
     end
 
     # Set ISBN for new request
@@ -87,6 +89,7 @@ module Gisbn
     # Return:
     #     String
     def description
+      return nil if @result.nil?
       @result["items"][0]["description"]
     end
 
@@ -98,6 +101,7 @@ module Gisbn
     # Return:
     #     String
     def title
+      return nil if @result.nil?
       @result["items"][0]["volumeInfo"]["title"]
     end
 
@@ -110,6 +114,7 @@ module Gisbn
     # Return:
     #     String
     def authors
+      return nil if @result.nil?
       @result["items"][0]["volumeInfo"]["authors"].join(", ")
     end
 
@@ -122,6 +127,7 @@ module Gisbn
     # Return:
     #     array
     def authors_as_array
+      return Array.new if @result.nil?
       @result["items"][0]["volumeInfo"]["authors"]
     end
 
@@ -134,6 +140,7 @@ module Gisbn
     # Return:
     #     String
     def publisher
+      return nil if @result.nil?
       @result["items"][0]["volumeInfo"]["publisher"]
     end
 
@@ -147,6 +154,8 @@ module Gisbn
     # Return:
     #     the ten digit numbers
     def isbn_10
+      return nil if @result.nil?
+
       isbn_array = @result["items"][0]["volumeInfo"]["industryIdentifiers"]
 
       isbn_array.each do |isbn|
@@ -166,6 +175,8 @@ module Gisbn
     # Return:
     #     the thirteen digit number
     def isbn_13
+      return nil if @result.nil?
+
       isbn_array = @result["items"][0]["volumeInfo"]["industryIdentifiers"]
 
       isbn_array.each do |isbn|
@@ -184,6 +195,7 @@ module Gisbn
     # Return:
     #     String
     def categories
+      return nil if @result.nil?
       @result["items"][0]["volumeInfo"]["categories"].join(", ")
     end
 
@@ -197,6 +209,7 @@ module Gisbn
     # Return:
     #     array
     def categories_as_array
+      return Array.new if @result.nil?
       @result["items"][0]["volumeInfo"]["categories"]
     end
 
@@ -210,6 +223,7 @@ module Gisbn
     # Return:
     #     String
     def thumbnail_small
+      return nil if @result.nil?
       @result["items"][0]["volumeInfo"]["imageLinks"]["smallThumbnail"]
     end
 
@@ -223,6 +237,7 @@ module Gisbn
     # Return:
     #     String
     def thumbnail
+      return nil if @result.nil?
       @result["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
     end
 
@@ -235,6 +250,7 @@ module Gisbn
     # Return:
     #     String
     def preview_link
+      return nil if @result.nil?
       @result["items"][0]["volumeInfo"]["previewLink"]
     end
 
@@ -247,6 +263,7 @@ module Gisbn
     # Return:
     #     int
     def page_count
+      return 0 if @result.nil?
       @result["items"][0]["volumeInfo"]["pageCount"]
     end
 
@@ -260,6 +277,7 @@ module Gisbn
     # Return:
     #     Date
     def published_date
+      return nil if @result.nil?
       Date.parse(@result["items"][0]["volumeInfo"]["publishedDate"])
     end
   end
