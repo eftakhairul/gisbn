@@ -27,7 +27,7 @@ gem 'gisbn'
 ```
 
 ## Examples
-    book = Gisbn::Book.new "0262033844"
+    book = Gisbn::Book.new "0262033844", "key", "country"   #key: valid from google; country: valid short country like "us"
 
     book.title
     #=> "Introduction to Algorithms"
