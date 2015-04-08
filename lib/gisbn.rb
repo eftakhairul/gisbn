@@ -71,6 +71,9 @@ module Gisbn
 
     # Set ISBN for new request
     #
+    # Arguments:
+    #   isbn: (String)
+    #
     # Example:
     #   >> gisbn.isbn = 0262033844
     #
