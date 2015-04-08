@@ -17,7 +17,7 @@ module Gisbn
     BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
 
     public
-    # Initialize a new Book object by ISBN (either ten or thirteen digits ISBN number)
+    # Initialize a new Book object by ISBN (either ten or thirteen digit ISBN numbers)
     #
     # At Interactive Ruby Shell...
     # require 'gisbn'
@@ -36,6 +36,7 @@ module Gisbn
 
       fetch
     end
+
 
     # Fetch book info from Google API
     #
@@ -67,6 +68,7 @@ module Gisbn
       @result   = nil if @result["totalItems"] == 0
     end
 
+
     # Set ISBN for new request
     #
     # Example:
@@ -77,6 +79,7 @@ module Gisbn
     def isbn(isbn)
       isbn.strip! || isbn
     end
+
 
     # Description of the book
     #
@@ -92,6 +95,7 @@ module Gisbn
       @result["items"][0]["description"]
     end
 
+
     # Title of the book
     # Example:
     #   >> gisbn.title
@@ -103,6 +107,7 @@ module Gisbn
       return nil if @result.nil?
       @result["items"][0]["volumeInfo"]["title"]
     end
+
 
     # It returns all authors' name as comma separated string
     #
@@ -117,6 +122,7 @@ module Gisbn
       @result["items"][0]["volumeInfo"]["authors"].join(", ")
     end
 
+
     # It returns all authors' name as array
     #
     # Example:
@@ -129,6 +135,7 @@ module Gisbn
       return Array.new if @result.nil?
       @result["items"][0]["volumeInfo"]["authors"]
     end
+
 
     # It returns publisher name
     #
@@ -185,6 +192,7 @@ module Gisbn
       end
     end
 
+
     # It returns categories of book
     #
     # Example:
@@ -239,6 +247,7 @@ module Gisbn
       return nil if @result.nil?
       @result["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
     end
+
 
     # It returns the preview link of book
     #

@@ -14,20 +14,27 @@ You don't have to call manually Google API with ISBN number. This gem will do ev
 
 
 ### Installation
+Add this line to your application's Gemfile:
 
-You need Gulp installed globally:
+```ruby
+gem 'gisbn'
+```
+
+And then execute:
+
+```sh
+$ bundle
+```
+
+Or install it yourself as globally:
 
 ```sh
 gem install gisbn
 ```
-Or, if you're using this in a project with Bundler:
 
-```sh
-gem 'gisbn'
-```
 
 ## Examples
-    book = Gisbn::Book.new "0262033844", "key", "country"   #key: valid from google; country: valid short country like "us"
+    book = Gisbn::Book.new "0262033844", "AIzaSyDKepjfaVBRcgsnPALw5s2UNyfOk-1FHUU", "ca"
 
     book.title
     #=> "Introduction to Algorithms"
