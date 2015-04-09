@@ -2,7 +2,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'spec_helper'
 
 describe "gisbn" do
-  subject { Gisbn::Book.new "0262033844" }
+  subject { Gisbn::Book.new "0262033844", "AIzaSyDKepjfaVBRcgsnPALw5s2UNyfOk-1FHUU", "ca" }
 
   describe '#process' do
     let(:output) { "Introduction to Algorithms" }
