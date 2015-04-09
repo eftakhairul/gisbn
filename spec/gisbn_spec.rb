@@ -11,7 +11,7 @@ describe "gisbn" do
     end
 
     it 'book page count' do
-      expect(output).to eq subject.page_count
+      expect(1292).to eq subject.page_count.to_i
     end
   end
 end
