@@ -11,7 +11,7 @@ before_install:
   - gem install gisbn
 
 script:
-  - bundle exec rake spec
+  - bundle exec rspec
 
 notifications:
   email:
