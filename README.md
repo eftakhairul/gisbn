@@ -1,4 +1,4 @@
-# gisbn
+# gisbn GEM  [![Build Status](https://travis-ci.org/eftakhairul/gisbn.svg?branch=master)](https://travis-ci.org/eftakhairul/gisbn)
 
 It fetches book's information by ISBN number based on Google Book API.
 
