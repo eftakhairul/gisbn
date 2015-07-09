@@ -14,7 +14,7 @@ module Gisbn
     private
     attr_accessor :key, :country
 
-    BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
+    BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'.freeze
 
     public
     # Initialize a new Book object by ISBN (either ten or thirteen digit ISBN numbers)
