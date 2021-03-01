@@ -289,7 +289,11 @@ module Gisbn
     #     Date
     def published_date
       return nil if @result.nil?
-      Date.parse(@result["items"][0]["volumeInfo"]["publishedDate"])
+      begin
+        Date.parse(@result["items"][0]["volumeInfo"]["publishedDate"])
+      rescue ArgumentError
+        @result["items"][0]["volumeInfo"]["publishedDate"]
+      end
     end
   end
 end
