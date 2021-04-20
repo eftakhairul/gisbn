@@ -95,7 +95,7 @@ module Gisbn
     #     String
     def description
       return nil if @result.nil?
-      @result["items"][0]["description"]
+      @result["items"][0]["volumeInfo"]["description"]
     end
 
 
@@ -168,7 +168,7 @@ module Gisbn
       isbn_array = @result["items"][0]["volumeInfo"]["industryIdentifiers"]
 
       isbn_array.each do |isbn|
-        if isbn["type"] == "ISBN_13"
+        if isbn["type"] == "ISBN_10"
           return isbn["identifier"]
         end
       end
@@ -289,7 +289,11 @@ module Gisbn
     #     Date
     def published_date
       return nil if @result.nil?
-      Date.parse(@result["items"][0]["volumeInfo"]["publishedDate"])
+      begin
+        Date.parse(@result["items"][0]["volumeInfo"]["publishedDate"])
+      rescue ArgumentError
+        @result["items"][0]["volumeInfo"]["publishedDate"]
+      end
     end
   end
 end
