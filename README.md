@@ -103,6 +103,7 @@ Author
 [Eftakhairul Islam](https://eftakhairul.com)
 
 Contributors
+-----------
 [Matt Seeberger](https://github.com/thebeardedgeek)
 
 License
