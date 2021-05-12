@@ -100,9 +100,10 @@ Want to contribute? Great!
 
 Author
 -----------
-[Eftakhairul Islam] - eftakhairul [at] gmail [dot] com
-[Eftakhairul Islam]:http://eftakhairul.com/
+[Eftakhairul Islam](https://eftakhairul.com)
 
+Contributors
+[Matt Seeberger](https://github.com/thebeardedgeek)
 
 License
 ----
